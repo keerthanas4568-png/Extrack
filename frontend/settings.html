@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Customize your Smart Expense Tracker experience — appearance, currency, notifications, security and more." />
+  <meta name="theme-color" content="#2563EB" />
+  <title>Settings — Expense Tracker</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/profile.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/settings.css">
+</head>
+<body class="dashboard-page">
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <div class="layout">
+    <!-- =========== SIDEBAR =========== -->
+    <aside class="sidebar" id="sidebar" aria-label="Dashboard navigation">
+      <div class="sidebar__brand">
+        <span class="brand__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+        </span>
+        <span class="brand__text">Expense<span class="brand__accent">Tracker</span></span>
+      </div>
+
+      <nav class="sidebar__nav" aria-label="Main menu">
+        <a class="nav-item" href="dashboard.html">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+          </span>
+          <span class="nav-item__label">Dashboard</span>
+        </a>
+       <a class="nav-item" href="budget.html">
+    <span class="nav-item__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"
+             width="20"
+             height="20"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round">
+            <path d="M21 15V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"/>
+            <path d="M16 12h5"/>
+        </svg>
+    </span>
+    <span class="nav-item__label">Budget</span>
+</a> 
+        <a class="nav-item" href="transactions.html">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </span>
+          <span class="nav-item__label">Transactions</span>
+        </a>
+        <a class="nav-item" href="add_transaction.html">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+          <span class="nav-item__label">Add Transaction</span>
+        </a>
+        <a class="nav-item" href="reports.html">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </span>
+          <span class="nav-item__label">Reports</span>
+        </a>
+        <a class="nav-item" href="profile.html">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          <span class="nav-item__label">Profile</span>
+        </a>
+        <a class="nav-item is-active" href="settings.html" aria-current="page">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-2.82 1.17V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 8 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 3.6 15H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 5 9.4l-.33-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 10 7.6V7a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 2.82-1.17l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 21 11.6H21a2 2 0 0 1 0 4h-.09z"/></svg>
+          </span>
+          <span class="nav-item__label">Settings</span>
+        </a>
+      </nav>
+
+      <a class="nav-item sidebar__logout" href="login.html">
+        <span class="nav-item__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </span>
+        <span class="nav-item__label">Logout</span>
+      </a>
+    </aside>
+
+    <!-- Mobile overlay for sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay" hidden></div>
+
+    <!-- =========== MAIN =========== -->
+    <div class="main">
+      <!-- Top navigation -->
+      <header class="topbar">
+        <div class="topbar__left">
+          <button class="icon-btn sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false" aria-controls="sidebar">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <h1 class="topbar__title">Settings</h1>
+        </div>
+
+        <div class="topbar__right">
+          <div class="search" role="search">
+            <span class="search__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
+            <input class="search__input" type="search" placeholder="Search transactions…" aria-label="Search transactions" />
+          </div>
+
+          <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+
+          <button class="icon-btn icon-btn--bell" aria-label="Notifications, 3 unread">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="badge-dot" aria-hidden="true">3</span>
+          </button>
+
+          <button class="profile" aria-label="User menu">
+  <span class="profile__avatar" aria-hidden="true"></span>
+
+  <span class="profile__meta">
+    <span class="profile__name"></span>
+    <span class="profile__role">Premium</span>
+  </span>
+</button>
+        </div>
+      </header>
+
+      <!-- Scrollable content -->
+      <main class="content" id="mainContent">
+        <!-- ===== Header ===== -->
+        <section class="page-head reveal" aria-labelledby="pageTitle">
+          <div>
+            <h2 class="page-head__title" id="pageTitle">Settings</h2>
+            <p class="page-head__subtitle">Customize your Expense Tracker experience.</p>
+          </div>
+        </section>
+
+        <!-- ===== Appearance + Currency ===== -->
+        <section class="panel-row" aria-label="Appearance and currency">
+          <article class="dash__panel reveal">
+            <h2 class="dash__panel-title">Appearance</h2>
+            <div class="segment" role="radiogroup" aria-label="Theme preference">
+              <label class="segment__item">
+                <input type="radio" name="theme" value="dark" />
+                <span>Dark Mode</span>
+              </label>
+              <label class="segment__item">
+                <input type="radio" name="theme" value="light" checked />
+                <span>Light Mode</span>
+              </label>
+              <label class="segment__item">
+                <input type="radio" name="theme" value="system" />
+                <span>System</span>
+              </label>
+            </div>
+            <p class="field__hint">Choose how the app looks. Dark Mode, Light Mode or match your device.</p>
+          </article>
+
+          <article class="dash__panel reveal">
+            <h2 class="dash__panel-title">Currency</h2>
+            <form class="form-grid" id="currencyForm">
+              <div class="field field--full">
+                <label class="field__label" for="currency">Display Currency</label>
+                <select class="field__input" id="currency" name="currency">
+                  <option value="INR" selected>INR (₹)</option>
+                  <option value="USD">USD ($)</option>
+                  <option value="EUR">EUR (€)</option>
+                  <option value="GBP">GBP (£)</option>
+                </select>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn--primary" type="submit" id="saveCurrency">Save Currency</button>
+              </div>
+            </form>
+          </article>
+        </section>
+
+        <!-- ===== Notifications + Language ===== -->
+        <section class="panel-row" aria-label="Notifications and language">
+          <article class="dash__panel reveal">
+            <h2 class="dash__panel-title">Notifications</h2>
+            <div class="prefs">
+              <div class="pref-item">
+                <div>
+                  <p class="pref-item__label">Email Notifications</p>
+                  <p class="pref-item__hint">Receive updates by email</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="notifEmail" checked />
+                  <span class="switch__track" aria-hidden="true"></span>
+                </label>
+              </div>
+              <div class="pref-item">
+                <div>
+                  <p class="pref-item__label">SMS Notifications</p>
+                  <p class="pref-item__hint">Receive updates by SMS</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="notifSms" />
+                  <span class="switch__track" aria-hidden="true"></span>
+                </label>
+              </div>
+              <div class="pref-item">
+                <div>
+                  <p class="pref-item__label">Monthly Reports</p>
+                  <p class="pref-item__hint">Get a report every month</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="notifReports" checked />
+                  <span class="switch__track" aria-hidden="true"></span>
+                </label>
+              </div>
+              <div class="pref-item">
+                <div>
+                  <p class="pref-item__label">Budget Alerts</p>
+                  <p class="pref-item__hint">Alert when nearing budget</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="notifAlerts" checked />
+                  <span class="switch__track" aria-hidden="true"></span>
+                </label>
+              </div>
+              <div class="pref-item">
+                <div>
+                  <p class="pref-item__label">Weekly Summary</p>
+                  <p class="pref-item__hint">A short weekly overview</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="notifWeekly" checked />
+                  <span class="switch__track" aria-hidden="true"></span>
+                </label>
+              </div>
+            </div>
+          </article>
+
+          <article class="dash__panel reveal">
+            <h2 class="dash__panel-title">Language</h2>
+            <form class="form-grid" id="languageForm">
+              <div class="field field--full">
+                <label class="field__label" for="language">Application Language</label>
+                <select class="field__input" id="language" name="language">
+                  <option value="en" selected>English</option>
+                  <option value="ta">Tamil</option>
+                  <option value="hi">Hindi</option>
+                </select>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn--primary" type="submit" id="saveLanguage">Save Language</button>
+              </div>
+            </form>
+          </article>
+        </section>
+
+        <!-- ===== Security ===== -->
+<section class="dash__panel reveal" aria-label="Security">
+
+    <h2 class="dash__panel-title">Security</h2>
+
+    <div class="form-actions">
+
+        <button
+            class="btn btn--primary"
+            type="button"
+            id="changePassword">
+            Change Password
+        </button>
+
+        <button
+            class="btn btn--outline"
+            type="button"
+            id="enable2fa">
+            Enable Two-Factor Authentication
+        </button>
+
+        <button
+            class="btn btn--ghost"
+            type="button"
+            id="manageDevices">
+            Manage Devices
+        </button>
+        <button id="viewLoginActivity">
+    Login Activity
+</button>
+
+<div id="loginActivityContainer"></div>
+
+    </div>
+
+    <!-- 2FA Setup -->
+    <div id="twoFactorSetup" class="two-factor-setup">
+
+    <div class="two-factor-content">
+
+        <h4>Set Up Two-Factor Authentication</h4>
+
+        <p class="two-factor-description">
+            Scan this QR code using Google Authenticator,
+            Microsoft Authenticator, or another authenticator app.
+        </p>
+
+        <div class="two-factor-qr" id="twoFactorQRCode"></div>
+
+        <div class="two-factor-secret">
+            <span>Manual setup key</span>
+            <code id="twoFactorSecret"></code>
+        </div>
+
+        <div class="two-factor-code">
+
+            <label for="twoFactorCode">
+                Enter the 6-digit verification code
+            </label>
+
+            <input
+                type="text"
+                id="twoFactorCode"
+                maxlength="6"
+                inputmode="numeric"
+                autocomplete="one-time-code"
+                placeholder="123456"
+            >
+
+        </div>
+
+        <button
+            class="btn btn--primary"
+            type="button"
+            id="verify2FA">
+            Verify & Enable 2FA
+        </button>
+
+        <p id="twoFactorMessage"></p>
+
+    </div>
+
+</div>    
+
+
+        <!-- ===== Data management ===== -->
+        <section class="dash__panel reveal" aria-label="Data management">
+          <h2 class="dash__panel-title">Data Management</h2>
+          <div class="form-actions">
+            <button class="btn btn--ghost" type="button" id="exportTxn">Export Transactions</button>
+            <button class="btn btn--ghost" type="button" id="downloadReports">Download Reports</button>
+            <button class="btn btn--ghost" type="button" id="backupData">Backup Data</button>
+            <button class="btn btn--ghost" type="button" id="importData">Import Data</button>
+          </div>
+        </section>
+
+        <!-- ===== Account ===== -->
+        <section class="dash__panel reveal" aria-label="Account">
+          <h2 class="dash__panel-title">Account</h2>
+          <div class="info-list">
+            <div class="info-row">
+              <span class="info-row__label">Account Status</span>
+              <span class="info-row__value"><span class="status status--done">Active</span></span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__label">Membership</span>
+              <span class="info-row__value">Premium Member</span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__label">Member Since</span>
+              <span class="info-row__value">March 2024</span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__label">Storage Used</span>
+              <span class="info-row__value">2.4 GB of 10 GB</span>
+            </div>
+          </div>
+          <div class="progress progress--mt">
+            <span class="progress__bar" data-width="24"></span>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn--danger" type="button" id="deleteAccount">Delete Account</button>
+            <button class="btn btn--ghost" type="button" id="logout">Logout</button>
+          </div>
+        </section>
+
+        <!-- ===== About ===== -->
+        <section class="dash__panel reveal" aria-label="About">
+          <h2 class="dash__panel-title">About</h2>
+          <div class="info-list">
+            <div class="info-row">
+              <span class="info-row__label">Application Version</span>
+              <span class="info-row__value">v2.4.1</span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__label">Developer</span>
+              <span class="info-row__value">Expense Tracker Team</span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__label">Privacy Policy</span>
+              <span class="info-row__value"><a class="panel-link" href="#">View policy</a></span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__label">Terms &amp; Conditions</span>
+              <span class="info-row__value"><a class="panel-link" href="#">Read terms</a></span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__label">Help &amp; Support</span>
+              <span class="info-row__value"><a class="panel-link" href="#">Get support</a></span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/profile.js"></script>
+  <script src="../js/settings.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</body>
+</html>

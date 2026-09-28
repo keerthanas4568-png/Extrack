@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create your Smart Expense Tracker account and start tracking your finances." />
+  <meta name="theme-color" content="#2563EB" />
+  <title>Register — Expense Tracker</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/auth.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+</head>
+<body class="auth-page">
+  <a class="skip-link" href="#registerForm">Skip to registration form</a>
+
+  <main class="auth-wrap auth-wrap--wide">
+    <section class="auth-card" aria-labelledby="registerHeading">
+      <!-- ===== Logo ===== -->
+      <a class="brand auth__brand" href="index.html" aria-label="Expense Tracker home">
+        <span class="brand__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 3v18h18" /><path d="M7 14l4-4 3 3 5-6" />
+          </svg>
+        </span>
+        <span class="brand__text">Expense<span class="brand__accent">Tracker</span></span>
+      </a>
+
+      <!-- ===== Heading ===== -->
+      <header class="auth__head">
+        <h1 class="auth__title" id="registerHeading">Create Your Account</h1>
+        <p class="auth__subtitle">Sign up to start tracking your finances.</p>
+      </header>
+
+      <!-- ===== Register form ===== -->
+      <form class="auth__form" id="registerForm" novalidate>
+        <!-- Full Name -->
+        <div class="field">
+          <label class="field__label" for="fullName">Full Name</label>
+          <input
+            class="field__input"
+            type="text"
+            id="fullName"
+            name="fullName"
+            placeholder="Jane Doe"
+            autocomplete="name"
+            required
+            aria-describedby="fullNameError"
+          />
+          <p class="field__error" id="fullNameError" role="alert" aria-live="polite"></p>
+        </div>
+
+        <!-- Username -->
+        <div class="field">
+          <label class="field__label" for="username">Username</label>
+          <input
+            class="field__input"
+            type="text"
+            id="username"
+            name="username"
+            placeholder="janedoe"
+            autocomplete="username"
+            required
+            aria-describedby="usernameError"
+          />
+          <p class="field__error" id="usernameError" role="alert" aria-live="polite"></p>
+        </div>
+
+        <!-- Email -->
+        <div class="field">
+          <label class="field__label" for="email">Email Address</label>
+          <input
+            class="field__input"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+            aria-describedby="emailError"
+          />
+          <p class="field__error" id="emailError" role="alert" aria-live="polite"></p>
+        </div>
+
+        <!-- Phone (optional) -->
+        <div class="field">
+          <label class="field__label" for="phone">Phone Number <span class="field__optional">(optional)</span></label>
+          <input
+            class="field__input"
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="+91 98765 43210"
+            autocomplete="tel"
+            aria-describedby="phoneError"
+          />
+          <p class="field__error" id="phoneError" role="alert" aria-live="polite"></p>
+        </div>
+
+        <!-- Password -->
+        <div class="field">
+          <label class="field__label" for="password">Password</label>
+          <div class="input-wrap">
+            <input
+              class="field__input"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="At least 8 characters"
+              autocomplete="new-password"
+              required
+              aria-describedby="passwordError"
+            />
+            <button class="password-toggle" type="button" aria-label="Show password" aria-pressed="false">
+              <svg class="icon-eye" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" /><circle cx="12" cy="12" r="3" />
+              </svg>
+              <svg class="icon-eye-off" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 19c-7 0-11-7-11-7a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 7 11 7a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><path d="M1 1l22 22" />
+              </svg>
+            </button>
+          </div>
+          <p class="field__error" id="passwordError" role="alert" aria-live="polite"></p>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="field">
+          <label class="field__label" for="confirmPassword">Confirm Password</label>
+          <div class="input-wrap">
+            <input
+              class="field__input"
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Re-enter your password"
+              autocomplete="new-password"
+              required
+              aria-describedby="confirmError"
+            />
+            <button class="password-toggle" type="button" aria-label="Show password" aria-pressed="false">
+              <svg class="icon-eye" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" /><circle cx="12" cy="12" r="3" />
+              </svg>
+              <svg class="icon-eye-off" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 19c-7 0-11-7-11-7a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 7 11 7a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><path d="M1 1l22 22" />
+              </svg>
+            </button>
+          </div>
+          <p class="field__error" id="confirmError" role="alert" aria-live="polite"></p>
+        </div>
+
+        <!-- Terms -->
+        <div class="field">
+          <label class="checkbox">
+            <input type="checkbox" id="terms" name="terms" required />
+            <span class="checkbox__box" aria-hidden="true"></span>
+            <span>I agree to the <a class="auth__link" href="terms.html">Terms</a> &amp; <a class="auth__link" href="privacy.html">Privacy Policy</a></span>
+          </label>
+          <p class="field__error" id="termsError" role="alert" aria-live="polite"></p>
+        </div>
+
+        <!-- Submit -->
+        <button class="btn btn--primary btn--block" type="submit" id="registerBtn">
+          <span class="btn__label">Register</span>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+      </form>
+
+      <!-- ===== Divider ===== -->
+      <div class="divider"><span>OR</span></div>
+
+      <!-- ===== Social (UI only) ===== -->
+      <div class="social">
+        <button class="social-btn" type="button" aria-label="Continue with Google">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path fill="#EA4335" d="M12 10.2v3.9h5.5c-.24 1.4-1.7 4.1-5.5 4.1-3.3 0-6-2.7-6-6s2.7-6 6-6c1.9 0 3.1.8 3.8 1.5l2.6-2.5C16.7 3.2 14.6 2.2 12 2.2 6.9 2.2 2.8 6.3 2.8 11.4S6.9 20.6 12 20.6c5.3 0 8.8-3.7 8.8-9 0-.6-.06-1-.14-1.4H12z"/>
+          </svg>
+          <span>Google</span>
+        </button>
+        <button class="social-btn" type="button" aria-label="Continue with GitHub">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="#1E293B" aria-hidden="true">
+            <path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/>
+          </svg>
+          <span>GitHub</span>
+        </button>
+      </div>
+
+      <!-- ===== Login link ===== -->
+      <p class="auth__switch">
+        Already have an account? <a class="auth__link" href="login.html">Login</a>
+      </p>
+
+      <!-- ===== Footer ===== -->
+      <footer class="auth__footer">
+        <p>&copy; <span id="year">2026</span> Expense Tracker. All rights reserved.</p>
+      </footer>
+    </section>
+  </main>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/validation.js"></script>
+  <script src="../js/auth.js"></script>
+</body>
+</html>

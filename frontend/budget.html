@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Manage your monthly budgets by category in Smart Expense Tracker." />
+  <meta name="theme-color" content="#2563EB" />
+  <title>Budget — Expense Tracker</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/budget.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+</head>
+<body class="dashboard-page">
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <div class="layout">
+    <!-- ============ SIDEBAR ============ -->
+ <aside class="sidebar" id="sidebar" aria-label="Dashboard navigation">
+
+  <div class="sidebar__brand">
+    <span class="brand__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 3v18h18"/>
+        <path d="M7 14l4-4 3 3 5-6"/>
+      </svg>
+    </span>
+    <span class="brand__text">Expense<span class="brand__accent">Tracker</span></span>
+  </div>
+
+  <nav class="sidebar__nav" aria-label="Main menu">
+
+    <!-- Dashboard -->
+    <a class="nav-item" href="dashboard.html">
+      <span class="nav-item__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="9" rx="1"/>
+          <rect x="14" y="3" width="7" height="5" rx="1"/>
+          <rect x="14" y="12" width="7" height="9" rx="1"/>
+          <rect x="3" y="16" width="7" height="5" rx="1"/>
+        </svg>
+      </span>
+      <span class="nav-item__label">Dashboard</span>
+    </a>
+    
+    <a class="nav-item is-active" href="budget.html" aria-current="page">
+      <span class="nav-item__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
+          <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+        </svg>
+      </span>
+      <span class="nav-item__label">Budget</span>
+    </a>  
+
+    <!-- Transactions -->
+    <a class="nav-item" href="transactions.html">
+      <span class="nav-item__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"/>
+          <line x1="8" y1="12" x2="21" y2="12"/>
+          <line x1="8" y1="18" x2="21" y2="18"/>
+          <line x1="3" y1="6" x2="3.01" y2="6"/>
+          <line x1="3" y1="12" x2="3.01" y2="12"/>
+          <line x1="3" y1="18" x2="3.01" y2="18"/>
+        </svg>
+      </span>
+      <span class="nav-item__label">Transactions</span>
+    </a>
+
+    <!-- Add Transaction -->
+    <a class="nav-item" href="add_transaction.html">
+      <span class="nav-item__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"/>
+          <line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+      </span>
+      <span class="nav-item__label">Add Transaction</span>
+    </a>
+
+    <!-- Reports -->
+    <a class="nav-item" href="reports.html">
+      <span class="nav-item__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="20" x2="18" y2="10"/>
+          <line x1="12" y1="20" x2="12" y2="4"/>
+          <line x1="6" y1="20" x2="6" y2="14"/>
+        </svg>
+      </span>
+      <span class="nav-item__label">Reports</span>
+    </a>
+
+    <!-- Profile -->
+    <a class="nav-item" href="profile.html">
+      <span class="nav-item__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </span>
+      <span class="nav-item__label">Profile</span>
+    </a>
+
+    <!-- Settings -->
+    <a class="nav-item" href="settings.html">
+      <span class="nav-item__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-2.82 1.17V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 8 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 3.6 15H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 5 9.4l-.33-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 10 7.6V7a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 2.82-1.17l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 21 11.6H21a2 2 0 0 1 0 4h-.09z"/>
+        </svg>
+      </span>
+      <span class="nav-item__label">Settings</span>
+    </a>
+  </nav>
+
+  <a class="nav-item sidebar__logout" href="login.html">
+    <span class="nav-item__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+        <polyline points="16 17 21 12 16 7"/>
+        <line x1="21" y1="12" x2="9" y2="12"/>
+      </svg>
+    </span>
+    <span class="nav-item__label">Logout</span>
+  </a>
+</aside>
+
+<div class="sidebar-overlay" id="sidebarOverlay" hidden></div>  
+    <!-- ============ MAIN ============ -->
+    <div class="main">
+      <!-- Top navigation -->
+      <header class="topbar">
+        <div class="topbar__left">
+          <button class="icon-btn sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false" aria-controls="sidebar">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <h1 class="topbar__title">Budget</h1>
+        </div>
+
+        <div class="topbar__right">
+          <form class="search" role="search" onsubmit="return false">
+            <span class="search__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
+            <input class="search__input" type="search" placeholder="Search transactions…" aria-label="Search transactions" />
+          </form>
+
+          <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+
+          <button class="icon-btn icon-btn--bell" aria-label="Notifications, 3 unread">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="badge-dot" aria-hidden="true">3</span>
+          </button>
+
+          <button class="profile" aria-label="User menu">
+  <span class="profile__avatar" aria-hidden="true"></span>
+
+  <span class="profile__meta">
+    <span class="profile__name"></span>
+    <span class="profile__role">Premium</span>
+  </span>
+</button>
+        </div>
+      </header>
+
+      <!-- Scrollable content -->
+      <main class="content" id="mainContent">
+        <header class="page-head reveal">
+          <div>
+            <h2 class="page-head__title">Budget Management</h2>
+            <p class="page-head__subtitle">Plan and track your monthly budgets by category.</p>
+          </div>
+        </header>
+
+        <!-- Summary cards -->
+        <section class="summary" aria-label="Budget summary">
+          <article class="summary-card reveal">
+            <span class="summary-card__icon summary-card__icon--primary" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg>
+            </span>
+            <div class="summary-card__body">
+              <span class="summary-card__label">Total Budget</span>
+              <span class="summary-card__value" id="totalBudget">₹0</span>
+            </div>
+          </article>
+
+          <article class="summary-card reveal">
+            <span class="summary-card__icon summary-card__icon--success" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+            <div class="summary-card__body">
+              <span class="summary-card__label">Categories Set</span>
+              <span class="summary-card__value" id="catCount">0</span>
+            </div>
+          </article>
+
+          <article class="summary-card reveal">
+            <span class="summary-card__icon summary-card__icon--danger" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </span>
+            <div class="summary-card__body">
+              <span class="summary-card__label">Avg Budget</span>
+              <span class="summary-card__value" id="avgBudget">₹0</span>
+            </div>
+          </article>
+
+          <article class="summary-card reveal">
+            <span class="summary-card__icon summary-card__icon--primary" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
+            </span>
+            <div class="summary-card__body">
+              <span class="summary-card__label">Highest Budget</span>
+              <span class="summary-card__value" id="highBudget">₹0</span>
+            </div>
+          </article>
+        </section>
+
+        <!-- Add budget + progress -->
+        <section class="panel-row panel-row--split" aria-label="Add budget and progress">
+          <article class="dash__panel reveal">
+            <div class="dash__panel-head">
+              <h2 class="dash__panel-title">Add New Budget</h2>
+            </div>
+            <form class="txn-form" id="budgetForm" novalidate>
+              <div class="field">
+                <label class="field__label" for="category">Category</label>
+                <select class="field__input" id="category" name="category" required aria-describedby="categoryError">
+                  <option value="">Select Category</option>
+                  <option>Food</option>
+                  <option>Transport</option>
+                  <option>Shopping</option>
+                  <option>Health</option>
+                  <option>Entertainment</option>
+                  <option>Education</option>
+                  <option>Other</option>
+                </select>
+                <p class="field__error" id="categoryError" role="alert" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="monthly_budget">Monthly Budget (₹)</label>
+                <input
+                  class="field__input"
+                  type="number"
+                  id="monthly_budget"
+                  name="monthly_budget"
+                  placeholder="Enter budget amount"
+                  required
+                  aria-describedby="budgetError"
+                />
+                <p class="field__error" id="budgetError" role="alert" aria-live="polite"></p>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--block" id="saveBtn">
+                <span class="btn__label">Save Budget</span>
+                <span class="spinner" aria-hidden="true"></span>
+              </button>
+            </form>
+          </article>
+
+          <article class="dash__panel reveal">
+            <h2 class="dash__panel-title">Budget Distribution</h2>
+            <ul class="budget">
+              <li class="budget__item">
+                <div class="budget__head"><span>Food</span><span>75%</span></div>
+                <div class="progress"><span class="progress__bar" data-width="75"></span></div>
+              </li>
+              <li class="budget__item">
+                <div class="budget__head"><span>Transport</span><span>45%</span></div>
+                <div class="progress"><span class="progress__bar" data-width="45"></span></div>
+              </li>
+              <li class="budget__item">
+                <div class="budget__head"><span>Shopping</span><span>88%</span></div>
+                <div class="progress"><span class="progress__bar progress__bar--warn" data-width="88"></span></div>
+              </li>
+              <li class="budget__item">
+                <div class="budget__head"><span>Health</span><span>32%</span></div>
+                <div class="progress"><span class="progress__bar" data-width="32"></span></div>
+              </li>
+              <li class="budget__item">
+                <div class="budget__head"><span>Entertainment</span><span>60%</span></div>
+                <div class="progress"><span class="progress__bar" data-width="60"></span></div>
+              </li>
+              <li class="budget__item">
+                <div class="budget__head"><span>Education</span><span>25%</span></div>
+                <div class="progress"><span class="progress__bar" data-width="25"></span></div>
+              </li>
+            </ul>
+          </article>
+        </section>
+
+        <!-- All budgets table -->
+        <section class="dash__panel reveal" aria-label="All budgets">
+          <div class="dash__panel-head">
+            <h2 class="dash__panel-title">All Budgets</h2>
+          </div>
+          <div class="table-wrap">
+            <table class="dash__table txn-table">
+              <thead>
+                <tr>
+                  <th scope="col">Category</th>
+                  <th scope="col" class="ta-right">Monthly Budget</th>
+                  <th scope="col"><span class="sr-only">Actions</span></th>
+                </tr>
+              </thead>
+              <tbody id="budgetTable">
+                <!-- budget.js populates this -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/budget.js"></script>
+</body>
+</html>

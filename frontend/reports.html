@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Reports & Analytics for Smart Expense Tracker — analyze income, expenses, budgets and spending habits." />
+  <meta name="theme-color" content="#2563EB" />
+  <title>Reports &amp; Analytics — Expense Tracker</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/reports.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+</head>
+<body class="dashboard-page">
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <div class="layout">
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" id="sidebar" aria-label="Dashboard navigation">
+      <div class="sidebar__brand">
+        <span class="brand__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+        </span>
+        <span class="brand__text">Expense<span class="brand__accent">Tracker</span></span>
+      </div>
+
+      <nav class="sidebar__nav" aria-label="Main menu">
+        <a class="nav-item" href="dashboard.html">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+          </span>
+          <span class="nav-item__label">Dashboard</span>
+        </a>
+      <a class="nav-item" href="budget.html">
+    <span class="nav-item__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"
+             width="20"
+             height="20"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round">
+            <path d="M21 15V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"/>
+            <path d="M16 12h5"/>
+        </svg>
+    </span>
+    <span class="nav-item__label">Budget</span>
+</a> 
+        <a class="nav-item" href="transactions.html">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </span>
+          <span class="nav-item__label">Transactions</span>
+        </a>
+        <a class="nav-item" href="add_transaction.html">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+          <span class="nav-item__label">Add Transaction</span>
+        </a>
+        <a class="nav-item is-active" href="reports.html" aria-current="page">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </span>
+          <span class="nav-item__label">Reports</span>
+        </a>
+        <a class="nav-item" href="profile.html">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          <span class="nav-item__label">Profile</span>
+        </a>
+        <a class="nav-item" href="settings.html">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-2.82 1.17V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 8 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 3.6 15H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 5 9.4l-.33-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 10 7.6V7a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 2.82-1.17l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 21 11.6H21a2 2 0 0 1 0 4h-.09z"/></svg>
+          </span>
+          <span class="nav-item__label">Settings</span>
+        </a>
+      </nav>
+
+      <a class="nav-item sidebar__logout" href="login.html">
+        <span class="nav-item__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </span>
+        <span class="nav-item__label">Logout</span>
+      </a>
+    </aside>
+
+    <!-- Mobile overlay for sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay" hidden></div>
+
+    <!-- ============ MAIN ============ -->
+    <div class="main">
+      <!-- Top navigation -->
+      <header class="topbar">
+        <div class="topbar__left">
+          <button class="icon-btn sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false" aria-controls="sidebar">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <h1 class="topbar__title">Reports</h1>
+        </div>
+
+        <div class="topbar__right">
+          <div class="search" role="search">
+            <span class="search__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
+            <input class="search__input" type="search" placeholder="Search transactions…" aria-label="Search transactions" />
+          </div>
+
+          <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+
+          <button class="icon-btn icon-btn--bell" aria-label="Notifications, 3 unread">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="badge-dot" aria-hidden="true">3</span>
+          </button>
+
+          <button class="profile" aria-label="User menu">
+  <span class="profile__avatar" aria-hidden="true"></span>
+
+  <span class="profile__meta">
+    <span class="profile__name"></span>
+    <span class="profile__role">Premium</span>
+  </span>
+</button>
+        </div>
+      </header>
+
+      <!-- Scrollable content -->
+      <main class="content" id="mainContent">
+        <!-- ===== Top section ===== -->
+        <section class="page-head reveal" aria-labelledby="pageTitle">
+          <div>
+            <h2 class="page-head__title" id="pageTitle">Reports &amp; Analytics</h2>
+            <p class="page-head__subtitle">Analyze your financial performance and spending habits.</p>
+          </div>
+          <span class="page-head__meta">Period: July 2026</span>
+        </section>
+
+        <!-- ===== Summary cards ===== -->
+        <section class="summary" aria-label="Financial summary">
+          <article class="summary-card reveal">
+            <span class="summary-card__icon summary-card__icon--success" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            </span>
+            <div class="summary-card__body">
+              <span class="summary-card__label">Total Income</span>
+              <span class="summary-card__value" id="totalIncome">₹0</span>
+            </div>
+            <span class="trend trend--up" id="incomeTrend">+0%</span>
+          </article>
+
+          <article class="summary-card reveal">
+            <span class="summary-card__icon summary-card__icon--danger" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+            </span>
+            <div class="summary-card__body">
+              <span class="summary-card__label">Total Expenses</span>
+              <span class="summary-card__value" id="totalExpenses">₹0</span>
+            </div>
+            <span class="trend trend--down" id="expenseTrend">0%</span>
+          </article>
+
+          <article class="summary-card reveal">
+            <span class="summary-card__icon summary-card__icon--primary" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
+            </span>
+            <div class="summary-card__body">
+              <span class="summary-card__label">Net Savings</span>
+              <span class="summary-card__value" id="netSavings">₹0</span>
+            </div>
+            <span class="trend trend--up" id="savingsTrend">+0%</span>
+          </article>
+
+          <article class="summary-card reveal">
+            <span class="summary-card__icon summary-card__icon--primary" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10l8-4"/><circle cx="12" cy="12" r="9"/></svg>
+            </span>
+            <div class="summary-card__body">
+            <span class="summary-card__label">Monthly Budget</span>
+            <span class="summary-card__value" id="monthlyBudgetValue">₹0</span>  
+            </div>
+            <span class="trend trend--up" id="budgetUsageValue">0% used</span>
+          </article>
+        </section>
+
+        <!-- ===== Filters (UI only) ===== -->
+        <section class="filters reveal" aria-label="Report filters">
+          <form id="filterForm" class="filters__form">
+            <div class="filters__grid">
+              <div class="field">
+                <label class="field__label" for="fRange">Date Range</label>
+                <select class="field__control" id="fRange" name="range">
+                  <option>This Month</option>
+                  <option>Last Month</option>
+                  <option>Last 3 Months</option>
+                  <option selected>Last 6 Months</option>
+                  <option>This Year</option>
+                  <option>Custom</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="field__label" for="fMonth">Month</label>
+                <input class="field__control" type="month" id="fMonth" name="month" />
+              </div>
+              <div class="field">
+                <label class="field__label" for="fYear">Year</label>
+                <select class="field__control" id="fYear" name="year">
+                  <option selected>2026</option>
+                  <option>2025</option>
+                  <option>2024</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="field__label" for="fCategory">Category</label>
+                <select class="field__control" id="fCategory" name="category">
+                  <option selected>All Categories</option>
+                  <option>Food</option>
+                  <option>Travel</option>
+                  <option>Shopping</option>
+                  <option>Bills</option>
+                  <option>Entertainment</option>
+                  <option>Medical</option>
+                  <option>Education</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="field__label" for="fType">Transaction Type</label>
+                <select class="field__control" id="fType" name="type">
+                  <option selected>All</option>
+                  <option>Income</option>
+                  <option>Expense</option>
+                </select>
+              </div>
+            </div>
+            <div class="filters__actions">
+              <button class="btn btn--primary" type="submit" id="applyFilters">Apply Filters</button>
+              <button class="btn btn--ghost" type="reset" id="resetFilters">Reset</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- ===== Charts ===== -->
+        <section class="charts-grid" aria-label="Charts">
+          <!-- Monthly Income vs Expenses -->
+          <article class="dash__panel chart-card reveal">
+            <h2 class="dash__panel-title">Monthly Income vs Expenses</h2>
+            <div class="bar-chart" id="incomeExpenseChart" role="img" aria-label="Grouped bar chart comparing monthly income and expenses for the last six months">
+              <div class="bar-group">
+                <span class="bar bar--income" data-h="70" aria-hidden="true"></span>
+                <span class="bar bar--expense" data-h="55" aria-hidden="true"></span>
+              </div>
+              <div class="bar-group">
+                <span class="bar bar--income" data-h="75" aria-hidden="true"></span>
+                <span class="bar bar--expense" data-h="50" aria-hidden="true"></span>
+              </div>
+              <div class="bar-group">
+                <span class="bar bar--income" data-h="65" aria-hidden="true"></span>
+                <span class="bar bar--expense" data-h="68" aria-hidden="true"></span>
+              </div>
+              <div class="bar-group">
+                <span class="bar bar--income" data-h="80" aria-hidden="true"></span>
+                <span class="bar bar--expense" data-h="52" aria-hidden="true"></span>
+              </div>
+              <div class="bar-group">
+                <span class="bar bar--income" data-h="78" aria-hidden="true"></span>
+                <span class="bar bar--expense" data-h="60" aria-hidden="true"></span>
+              </div>
+              <div class="bar-group">
+                <span class="bar bar--income" data-h="95" aria-hidden="true"></span>
+                <span class="bar bar--expense" data-h="58" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="bar-chart__axis" aria-hidden="true">
+              <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+            </div>
+            <ul class="chart-legend">
+              <li><span class="dot dot--success"></span> Income</li>
+              <li><span class="dot dot--danger"></span> Expenses</li>
+            </ul>
+          </article>
+
+          <!-- Expense by Category -->
+          <article class="dash__panel chart-card reveal">
+            <h2 class="dash__panel-title">Expense by Category</h2>
+            <div
+              class="chart-pie chart-pie--expense"
+              id="expenseCategoryChart"
+              role="img"
+              aria-label="Pie chart of expenses by category"
+           >
+              <span class="chart-pie__hole" id="categoryTotal">₹0</span>
+              </div>
+            <ul class="chart-legend" id="categoryLegend"></ul>
+          </article>
+
+          <!-- Weekly Spending Trend -->
+          <article class="dash__panel chart-card reveal">
+            <h2 class="dash__panel-title">Weekly Spending Trend</h2>
+            <svg class="line-chart" viewBox="0 0 320 140" role="img" aria-label="Line chart of weekly spending trend over the last six weeks">
+              <defs>
+                <linearGradient id="lineFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2563EB" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#2563EB" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+              <path class="line-chart__area" fill="url(#lineFill)" d="M20,100 L66.7,70 L113.3,110 L160,80 L206.7,55 L253.3,120 L300,75 L300,140 L20,140 Z" />
+              <polyline class="line-chart__line" points="20,100 66.7,70 113.3,110 160,80 206.7,55 253.3,120 300,75" />
+              <circle class="line-chart__dot" cx="20" cy="100" r="4" />
+              <circle class="line-chart__dot" cx="66.7" cy="70" r="4" />
+              <circle class="line-chart__dot" cx="113.3" cy="110" r="4" />
+              <circle class="line-chart__dot" cx="160" cy="80" r="4" />
+              <circle class="line-chart__dot" cx="206.7" cy="55" r="4" />
+              <circle class="line-chart__dot" cx="253.3" cy="120" r="4" />
+              <circle class="line-chart__dot" cx="300" cy="75" r="4" />
+            </svg>
+            <div class="bar-chart__axis" aria-hidden="true">
+              <span>Wk 1</span><span>Wk 2</span><span>Wk 3</span><span>Wk 4</span><span>Wk 5</span><span>Wk 6</span>
+            </div>
+          </article>
+
+          <!-- Income Sources -->
+          <article class="dash__panel chart-card reveal">
+    <h2 class="dash__panel-title">Income Sources</h2>
+
+    <div
+        class="chart-pie chart-pie--income"
+        id="incomeSourcesPie"
+        role="img"
+        aria-label="Donut chart of income sources"
+    >
+        <span class="chart-pie__hole" id="incomeSourcesTotal">
+            ₹0
+        </span>
+    </div>
+
+    <ul class="chart-legend" id="incomeSourcesLegend">
+    </ul>
+</article>
+        <!-- ===== Category analysis ===== -->
+        <section class="dash__panel reveal" aria-label="Category analysis">
+
+            <h2 class="dash__panel-title">
+                Category Analysis
+            </h2>
+
+            <div class="cat-grid" id="categoryAnalysis">
+            </div>
+
+        </section>
+
+        <!-- ===== Monthly summary ===== -->
+        <section class="dash__panel reveal" aria-label="Monthly summary">
+          <h2 class="dash__panel-title">Monthly Summary</h2>
+          <div class="table-wrap">
+            <table class="dash__table">
+              <thead>
+                <tr>
+                  <th scope="col">Month</th>
+                  <th scope="col" class="ta-right">Income</th>
+                  <th scope="col" class="ta-right">Expenses</th>
+                  <th scope="col" class="ta-right">Savings</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody id="monthlySummaryBody"></tbody>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ===== Top spending categories ===== -->
+        <section class="dash__panel reveal" aria-label="Top spending categories">
+          <h2 class="dash__panel-title">Top Spending Categories</h2>
+          <ul class="rank-list" id="topSpendingCategories"></ul>
+        </section>
+
+        <!-- ===== Financial insights ===== -->
+        <section class="dash__panel reveal" aria-label="Financial insights">
+          <h2 class="dash__panel-title">Financial Insights</h2>
+          <div class="insights-grid">
+            <article class="insight-card insight-card--up">
+              <span class="insight-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg>
+              </span>
+              <div>
+               <h3 class="insight-card__title" id="insightTitle1"></h3>
+               <p class="insight-card__text" id="insightText1"></p>
+              </div>
+            </article>
+
+            <article class="insight-card insight-card--down">
+              <span class="insight-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l6 6 4-4 8 8"/><path d="M21 17v-6h-6"/></svg>
+              </span>
+              <div>
+              <h3 class="insight-card__title" id="insightTitle2"></h3>
+              <p class="insight-card__text" id="insightText2"></p> 
+              </div>
+            </article>
+
+            <article class="insight-card">
+              <span class="insight-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
+              </span>
+              <div>
+               <h3 class="insight-card__title" id="insightTitle3"></h3>
+               <p class="insight-card__text" id="insightText3"></p> 
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===== Export ===== -->
+        <section class="dash__panel reveal" aria-label="Export report">
+          <div class="export-box">
+            <div>
+              <h2 class="dash__panel-title">Export Report</h2>
+              <p class="page-head__subtitle">Download or print your report for your records.</p>
+            </div>
+            <div class="export-actions">
+              <button class="btn btn--primary" type="button" id="exportPdf">Export PDF</button>
+              <button class="btn btn--outline" type="button" id="exportExcel">Export Excel</button>
+              <button class="btn btn--ghost" type="button" id="printReport">Print Report</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/reports.js"></script>
+</body>
+</html>

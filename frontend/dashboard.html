@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Smart Expense Tracker dashboard — overview of balance, income, expenses, budgets and recent activity." />
+  <meta name="theme-color" content="#2563EB" />
+  <title>Dashboard — Expense Tracker</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+</head>
+<body class="dashboard-page">
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <div class="layout">
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" id="sidebar" aria-label="Dashboard navigation">
+      <div class="sidebar__brand">
+        <span class="brand__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+        </span>
+        <span class="brand__text">Expense<span class="brand__accent">Tracker</span></span>
+      </div>
+
+      <nav class="sidebar__nav" aria-label="Main menu">
+        <a class="nav-item is-active" href="dashboard.html" aria-current="page">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+          </span>
+          <span class="nav-item__label">Dashboard</span>
+          </a>
+          <a class="nav-item" href="budget.html">
+    <span class="nav-item__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"
+             width="20"
+             height="20"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round">
+            <path d="M21 15V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"/>
+            <path d="M16 12h5"/>
+        </svg>
+    </span>
+    <span class="nav-item__label">Budget</span>
+</a>
+        <a class="nav-item" href="transactions.html">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </span>
+          <span class="nav-item__label">Transactions</span>
+        </a>
+        <a class="nav-item" href="add_transaction.html">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+          <span class="nav-item__label">Add Transaction</span>
+        </a>
+        <a class="nav-item" href="reports.html">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </span>
+          <span class="nav-item__label">Reports</span>
+        </a>
+        <a class="nav-item" href="profile.html">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          <span class="nav-item__label">Profile</span>
+        </a>
+        <a class="nav-item" href="settings.html">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-2.82 1.17V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 8 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 3.6 15H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 5 9.4l-.33-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 10 7.6V7a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 2.82-1.17l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 21 11.6H21a2 2 0 0 1 0 4h-.09z"/></svg>
+          </span>
+          <span class="nav-item__label">Settings</span>
+        </a>
+      </nav>
+
+      <a class="nav-item sidebar__logout" href="login.html">
+        <span class="nav-item__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </span>
+        <span class="nav-item__label">Logout</span>
+      </a>
+    </aside>
+
+    <!-- Mobile overlay for sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay" hidden></div>
+
+    <!-- ============ MAIN ============ -->
+    <div class="main">
+      <!-- Top navigation -->
+      <header class="topbar">
+        <div class="topbar__left">
+          <button class="icon-btn sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false" aria-controls="sidebar">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <h1 class="topbar__title">Dashboard</h1>
+        </div>
+
+        <div class="topbar__right">
+          <form class="search" role="search" onsubmit="return false">
+            <span class="search__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
+           <input
+              class="search__input"
+              type="search"
+              id="searchTransaction"
+              placeholder="Search transactions…"
+              aria-label="Search transactions"
+            /> 
+          </form>
+          <select id="filterTransaction" class="search__input">
+              <option value="all">All</option>
+              <option value="Income">Income</option>
+              <option value="Expense">Expense</option>
+          </select>
+
+          <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+
+          <button class="icon-btn icon-btn--bell" aria-label="Notifications, 3 unread">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="badge-dot" aria-hidden="true">3</span>
+          </button>
+        <button class="profile" aria-label="User menu">
+  <span class="profile__avatar" aria-hidden="true"></span>
+
+  <span class="profile__meta">
+    <span class="profile__name"></span>
+    <span class="profile__role">Premium</span>
+  </span>
+</button>
+        </div>
+      </header>
+
+      <!-- Scrollable content -->
+      <main class="content" id="mainContent">
+        <!-- Summary cards -->
+        <section class="summary" aria-label="Financial summary">
+          <article class="summary-card reveal">
+            <span class="summary-card__icon summary-card__icon--primary" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg>
+            </span>
+            <div class="summary-card__body">
+              <span class="summary-card__label">Total Balance</span>
+              <span class="summary-card__value" id="totalBalance">₹0</span>
+            </div>
+            <span class="trend trend--up">+12.5%</span>
+          </article>
+
+          <article class="summary-card reveal">
+            <span class="summary-card__icon summary-card__icon--success" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            </span>
+            <div class="summary-card__body">
+              <span class="summary-card__label">Income</span>
+              <span class="summary-card__value" id="totalIncome">₹0</span>
+            </div>
+            <span class="trend trend--up">+8.2%</span>
+          </article>
+
+          <article class="summary-card reveal">
+            <span class="summary-card__icon summary-card__icon--danger" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+            </span>
+            <div class="summary-card__body">
+              <span class="summary-card__label">Expenses</span>
+              <span class="summary-card__value" id="totalExpense">₹0</span>
+            </div>
+            <span class="trend trend--down">-3.1%</span>
+          </article>
+
+          <article class="summary-card reveal">
+            <span class="summary-card__icon summary-card__icon--primary" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
+            </span>
+            <div class="summary-card__body">
+              <span class="summary-card__label">Savings</span>
+              <span class="summary-card__value" id="totalSavings">₹0</span>
+            </div>
+            <span class="trend trend--up">+15.0%</span>
+          </article>
+        </section>
+
+        <!-- Quick actions -->
+        <section class="quick-actions reveal" aria-label="Quick actions">
+          <a class="action-btn" href="add_transaction.html?type=income">
+            <span class="action-btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+            Add Income
+          </a>
+          <a class="action-btn" href="add_transaction.html?type=expense">
+            <span class="action-btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+            Add Expense
+          </a>
+          <a class="action-btn" href="reports.html">
+            <span class="action-btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </span>
+            View Reports
+          </a>
+          <button class="action-btn" type="button" id="exportBtn">
+            <span class="action-btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </span>
+            Export Data
+          </button>
+          <button class="action-btn" type="button" id="exportPdfBtn">
+            <span class="action-btn__icon" aria-hidden="true">
+              📄
+            </span>
+          Export PDF
+          </button>
+        </section>
+
+        <!-- Charts -->
+        <section class="panel-row" aria-label="Charts">
+          <article class="dash__panel reveal">
+            <h2 class="dash__panel-title">Expense Breakdown</h2>
+            <canvas id="expenseChart" width="350" height="350"></canvas>
+          </article>
+
+          <article class="dash__panel reveal">
+            <h2 class="dash__panel-title">Monthly Spending</h2>
+             <canvas id="monthlyChart" height="220"></canvas>
+          </article>
+        </section>
+
+        <!-- Transactions + Budget -->
+        <section class="panel-row panel-row--split" aria-label="Transactions and budgets">
+          <article class="dash__panel reveal">
+            <div class="dash__panel-head">
+              <h2 class="dash__panel-title" style="color:red;">THIS IS MY FILE</h2>
+              <a class="panel-link" href="transactions.html">View all</a>
+            </div>
+            <div class="table-wrap">
+                <table class="dash__table txn-table">
+
+                   <thead>
+                       <tr>
+                          <th>Date</th>
+                          <th>Category</th>
+                          <th>Description</th>
+                          <th>Type</th>
+                          <th>Amount</th>
+                          <th>Status</th>
+                          <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="recentTransactions">
+                    </tbody>
+
+                  </table>
+               </div> 
+          </article>
+
+          <article class="dash__panel reveal">
+            <h2 class="dash__panel-title">Budget Progress</h2>
+            <ul class="budget">
+              <li class="budget__item">
+                <div class="budget__head"><span>Food</span><span>72%</span></div>
+                <div class="progress"><span class="progress__bar" data-width="72"></span></div>
+              </li>
+              <li class="budget__item">
+                <div class="budget__head"><span>Travel</span><span>45%</span></div>
+                <div class="progress"><span class="progress__bar" data-width="45"></span></div>
+              </li>
+              <li class="budget__item">
+                <div class="budget__head"><span>Shopping</span><span>88%</span></div>
+                <div class="progress"><span class="progress__bar progress__bar--warn" data-width="88"></span></div>
+              </li>
+              <li class="budget__item">
+                <div class="budget__head"><span>Bills</span><span>60%</span></div>
+                <div class="progress"><span class="progress__bar" data-width="60"></span></div>
+              </li>
+              <li class="budget__item">
+                <div class="budget__head"><span>Entertainment</span><span>35%</span></div>
+                <div class="progress"><span class="progress__bar" data-width="35"></span></div>
+              </li>
+              <li class="budget__item">
+                <div class="budget__head"><span>Medical</span><span>20%</span></div>
+                <div class="progress"><span class="progress__bar" data-width="20"></span></div>
+              </li>
+            </ul>
+          </article>
+        </section>
+
+        <!-- Recent activity -->
+        <section class="dash__panel reveal" aria-label="Recent activity">
+          <h2 class="dash__panel-title">Recent Activity</h2>
+          <ol class="timeline">
+            <li class="timeline__item">
+              <span class="timeline__dot timeline__dot--danger" aria-hidden="true"></span>
+              <div class="timeline__body">
+                <p class="timeline__title">Expense Added</p>
+                <p class="timeline__text">Paid ₹1,250 for Groceries</p>
+              </div>
+              <span class="timeline__time">2h ago</span>
+            </li>
+            <li class="timeline__item">
+              <span class="timeline__dot timeline__dot--success" aria-hidden="true"></span>
+              <div class="timeline__body">
+                <p class="timeline__title">Income Added</p>
+                <p class="timeline__text">Received Salary ₹60,000</p>
+              </div>
+              <span class="timeline__time">1d ago</span>
+            </li>
+            <li class="timeline__item">
+              <span class="timeline__dot timeline__dot--primary" aria-hidden="true"></span>
+              <div class="timeline__body">
+                <p class="timeline__title">Profile Updated</p>
+                <p class="timeline__text">Changed profile picture</p>
+              </div>
+              <span class="timeline__time">3d ago</span>
+            </li>
+            <li class="timeline__item">
+              <span class="timeline__dot timeline__dot--warn" aria-hidden="true"></span>
+              <div class="timeline__body">
+                <p class="timeline__title">Budget Reached</p>
+                <p class="timeline__text">Food budget 90% used</p>
+              </div>
+              <span class="timeline__time">5d ago</span>
+            </li>
+          </ol>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>
