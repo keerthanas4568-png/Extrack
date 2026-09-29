@@ -1,0 +1,63 @@
+:root {
+  /* ===== Brand palette ===== */
+  --color-primary: #2563EB;
+  --color-primary-dark: #1D4ED8;
+  --color-primary-light: #DBEAFE;
+  --color-success: #16A34A;
+  --color-success-light: #DCFCE7;
+  --color-danger: #DC2626;
+  --color-danger-light: #FEE2E2;
+
+  /* ===== Surfaces & text ===== */
+  --color-bg: #F8FAFC;
+  --color-card: #FFFFFF;
+  --color-text: #1E293B;
+  --color-text-muted: #64748B;
+  --color-border: #E2E8F0;
+
+  /* ===== Derived ===== */
+  --color-text-soft: #475569;
+  --color-bg-alt: #EEF2F7;
+  --color-shadow: 148 163 184;
+
+  /* ===== Typography ===== */
+  --font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.35rem;
+  --fs-2xl: 1.75rem;
+  --fs-3xl: 2.25rem;
+  --fs-4xl: 3rem;
+  --fs-5xl: 3.75rem;
+
+  /* ===== Spacing ===== */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* ===== Radius & shadows ===== */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 3px rgb(var(--color-shadow) / 0.12);
+  --shadow-md: 0 10px 25px -5px rgb(var(--color-shadow) / 0.18);
+  --shadow-lg: 0 25px 50px -12px rgb(var(--color-shadow) / 0.25);
+  --shadow-glow: 0 18px 40px -10px rgb(37 99 235 / 0.35);
+
+  /* ===== Layout ===== */
+  --container: 1180px;
+  --nav-height: 72px;
+
+  /* ===== Motion ===== */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.3s var(--ease);
+}

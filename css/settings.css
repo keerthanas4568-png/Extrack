@@ -1,0 +1,235 @@
+/* =========================================
+   Manage Devices Popup
+   ========================================= */
+
+.devices-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+}
+
+.devices-modal {
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+
+    background: white;
+    border-radius: 15px;
+
+    padding: 20px;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+
+    overflow-y: auto;
+}
+
+.devices-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.devices-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.devices-close {
+    border: none;
+    background: transparent;
+
+    font-size: 30px;
+    cursor: pointer;
+
+    color: #333;
+}
+
+.devices-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.device-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 15px;
+
+    border: 1px solid #ddd;
+    border-radius: 12px;
+
+    background: #f8f9fa;
+}
+
+.device-icon {
+    font-size: 35px;
+}
+
+.device-info {
+    flex: 1;
+}
+
+.device-info h3 {
+    margin: 0 0 8px 0;
+}
+
+.device-info p {
+    margin: 4px 0;
+
+    font-size: 14px;
+    color: #555;
+}
+
+.current-device {
+    margin-top: 8px;
+
+    font-weight: bold;
+    color: green;
+}
+
+.logout-device {
+    margin-top: 10px;
+
+    padding: 8px 15px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #dc3545;
+    color: white;
+
+    cursor: pointer;
+}
+
+.logout-device:hover {
+    background: #b02a37;
+}
+.logout-device {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+
+    background-color: #dc3545 !important;
+    color: white !important;
+
+    border: none !important;
+    border-radius: 7px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.logout-device:hover {
+    background-color: #b02a37 !important;
+}
+/* Login Activity */
+
+.activity-container {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+}
+
+.activity-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #f8f9fa;
+}
+
+.activity-card h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+}
+
+.activity-card p {
+    margin: 4px 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.activity-success {
+    color: #198754;
+    font-weight: bold;
+}
+
+.activity-failed {
+    color: #dc3545;
+    font-weight: bold;
+}
+#loginActivityContainer .activity-container {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #dce3ed;
+    border-radius: 14px;
+}
+
+#loginActivityContainer .activity-container h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+#loginActivityContainer .activity-card {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 18px;
+    margin: 12px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    background: #f8fafc;
+}
+
+#loginActivityContainer .activity-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+#loginActivityContainer .activity-card p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #475569;
+}
+#viewLoginActivity {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 30px;
+    background: #ffffff;
+    color: #1e293b;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#viewLoginActivity:hover {
+    background: #eff6ff;
+    border-color: #2563eb;
+    color: #2563eb;
+}

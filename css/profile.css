@@ -1,0 +1,367 @@
+/* ============================================================
+   profile.css — Profile & Account page
+   Built on dashboard.css / components.css. Defines the
+   form controls, profile card, info list, switches and
+   preference rows used on the profile screen.
+   ============================================================ */
+
+/* ===== Page header ===== */
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+.page-head__title {
+  font-size: var(--fs-3xl);
+  margin-bottom: var(--space-1);
+}
+.page-head__subtitle {
+  font-size: var(--fs-base);
+  color: var(--color-text-muted);
+  max-width: 60ch;
+}
+
+/* ===== Form fields ===== */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.field__label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+.field__hint {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+.field__input {
+  width: 100%;
+  padding: 0.75rem 0.95rem;
+  font: inherit;
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.field__input::placeholder {
+  color: #94A3B8;
+}
+.field__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgb(37 99 235 / 0.15);
+}
+.field--invalid .field__input {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 4px rgb(220 38 38 / 0.12);
+}
+.field__error {
+  min-height: 1.05rem;
+  font-size: var(--fs-xs);
+  color: var(--color-danger);
+  font-weight: 500;
+}
+
+/* ===== Password wrapper + toggle ===== */
+.input-wrap {
+  position: relative;
+}
+.input-wrap .field__input {
+  padding-right: 2.9rem;
+}
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.6rem;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  color: var(--color-text-muted);
+  transition: color var(--transition), background var(--transition);
+}
+.password-toggle:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+.password-toggle .icon-eye-off {
+  display: none;
+}
+.password-toggle.is-visible .icon-eye {
+  display: none;
+}
+.password-toggle.is-visible .icon-eye-off {
+  display: block;
+}
+
+/* ===== Form layout ===== */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+.form-grid .field--full {
+  grid-column: 1 / -1;
+}
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+/* ===== Profile card ===== */
+.profile-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-5);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+.profile-card__avatar {
+  position: relative;
+  flex-shrink: 0;
+}
+.avatar-xl {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), #60A5FA);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: var(--fs-3xl);
+  box-shadow: var(--shadow-md);
+}
+.profile-card__body {
+  flex: 1;
+  min-width: 220px;
+}
+.profile-card__name {
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+}
+.profile-card__email {
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+}
+.membership-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: var(--space-3);
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--color-primary), #60A5FA);
+  color: #fff;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+.profile-card__meta {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+}
+.profile-card__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* ===== Account info list ===== */
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+.info-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.info-row__label {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+.info-row__value {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Spacing helper */
+.progress--mt {
+  margin-top: var(--space-4);
+}
+
+/* ===== Segmented control (theme picker) ===== */
+.segment {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-1);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+}
+.segment__item {
+  position: relative;
+  flex: 1;
+  min-width: 90px;
+}
+.segment__item input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.segment__item span {
+  display: block;
+  text-align: center;
+  padding: 0.55rem 0.8rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text-soft);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+}
+.segment__item input:checked + span {
+  background: var(--color-card);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+.segment__item input:focus-visible + span {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ===== Danger / warning button ===== */
+.btn--danger {
+  background: var(--color-danger);
+  color: #fff;
+  box-shadow: 0 10px 25px -8px rgb(220 38 38 / 0.5);
+}
+.btn--danger:hover {
+  background: #B91C1C;
+  transform: translateY(-2px);
+}
+
+/* ===== Preferences / switches ===== */
+.prefs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.pref-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-card);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.pref-item:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-sm);
+}
+.pref-item__label {
+  font-weight: 500;
+  color: var(--color-text);
+  font-size: var(--fs-sm);
+}
+.pref-item__hint {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 26px;
+  flex-shrink: 0;
+}
+.switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.switch__track {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  border-radius: 999px;
+  background: var(--color-border);
+  transition: background var(--transition);
+}
+.switch__track::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition);
+}
+.switch input:checked + .switch__track {
+  background: var(--color-primary);
+}
+.switch input:checked + .switch__track::before {
+  transform: translateX(20px);
+}
+.switch input:focus-visible + .switch__track {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-grid .field--full {
+    grid-column: auto;
+  }
+}
+@media (max-width: 560px) {
+  .profile-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .profile-card__actions {
+    width: 100%;
+    flex-direction: row;
+  }
+  .profile-card__actions .btn {
+    flex: 1;
+  }
+}

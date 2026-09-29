@@ -1,0 +1,175 @@
+/* ============================================================
+   BUDGET — budget page styling
+   Reuses the dashboard shell (sidebar / topbar / .dash__panel).
+   ============================================================ */
+
+/* ===== Page header ===== */
+.page-head {
+  margin-bottom: var(--space-2);
+}
+.page-head__title {
+  font-size: var(--fs-3xl);
+}
+.page-head__subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--fs-base);
+  margin-top: 0.25rem;
+}
+
+/* ===== Budget form ===== */
+.txn-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ===== Form fields ===== */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.field__label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+.field__input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  font-size: var(--fs-base);
+  font-family: inherit;
+  color: var(--color-text);
+  background: var(--color-card);
+  border: 1.5px solid var(--color-border);
+  border-radius: 12px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.field__input::placeholder {
+  color: #94A3B8;
+}
+.field__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgb(37 99 235 / 0.15);
+}
+select.field__input {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  padding-right: 2.4rem;
+  cursor: pointer;
+}
+.field__error {
+  min-height: 1.05rem;
+  font-size: var(--fs-xs);
+  color: var(--color-danger);
+  font-weight: 500;
+}
+
+/* ===== Save button spinner ===== */
+.btn {
+  position: relative;
+}
+.spinner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #fff;
+  border-radius: 50%;
+  display: none;
+  animation: spin 0.7s linear infinite;
+}
+.btn--loading .btn__label {
+  visibility: hidden;
+}
+.btn--loading .spinner {
+  display: block;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== Delete button (used by budget.js) ===== */
+.delete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-danger);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.delete-btn:hover {
+  background: #B91C1C;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ===== Budget progress list ===== */
+.budget {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.budget__head {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-sm);
+  color: var(--color-text-soft);
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+.budget__item {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .panel-row--split {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .progress__bar {
+    transition: none;
+  }
+  .spinner {
+    animation-duration: 0.001ms !important;
+  }
+}
+/* Budget Edit Button */
+.edit-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    margin-right: 6px;
+    font-family: inherit;
+}
+
+.edit-btn:hover {
+    background: #1d4ed8;
+}

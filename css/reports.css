@@ -1,0 +1,381 @@
+/* ============================================================
+   reports.css — Reports & Analytics page
+   Report-specific components built on top of dashboard.css /
+   components.css. Bar chart, line chart, category cards,
+   ranked list, insights and export area.
+   ============================================================ */
+
+/* ===== Page header ===== */
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+.page-head__title {
+  font-size: var(--fs-3xl);
+  margin-bottom: var(--space-1);
+}
+.page-head__subtitle {
+  font-size: var(--fs-base);
+  color: var(--color-text-muted);
+  max-width: 60ch;
+}
+.page-head__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+/* ===== Filters ===== */
+.filters {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+}
+.filters__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-4);
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.field__label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--color-text-soft);
+}
+.field__control {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  font: inherit;
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.field__control:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgb(37 99 235 / 0.12);
+}
+.filters__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+/* ===== Charts grid ===== */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+}
+.chart-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Grouped bar chart (Income vs Expenses) ===== */
+.bar-chart {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  align-items: end;
+  gap: var(--space-3);
+  height: 200px;
+  padding-top: var(--space-2);
+}
+.bar-group {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  height: 100%;
+}
+.bar {
+  width: 42%;
+  max-width: 26px;
+  border-radius: 6px 6px 0 0;
+  transition: height 1s var(--ease);
+}
+.bar--income {
+  background: linear-gradient(180deg, #4ADE80, var(--color-success));
+}
+.bar--expense {
+  background: linear-gradient(180deg, #F87171, var(--color-danger));
+}
+.bar-chart__axis {
+  display: flex;
+  justify-content: space-around;
+  margin-top: var(--space-3);
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+/* ===== Line chart (Weekly spending trend) ===== */
+.line-chart {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.line-chart__area {
+  opacity: 0.18;
+  transition: opacity 1.2s var(--ease);
+}
+.line-chart__line {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  transition: stroke-dashoffset 1.8s var(--ease);
+}
+.reveal.is-visible .line-chart__line,
+.line-chart.is-drawn .line-chart__line {
+  stroke-dashoffset: 0;
+}
+.reveal.is-visible .line-chart__area,
+.line-chart.is-drawn .line-chart__area {
+  opacity: 0.18;
+}
+.line-chart__dot {
+  fill: #fff;
+  stroke: var(--color-primary);
+  stroke-width: 3;
+}
+
+/* ===== Pie / Donut modifiers ===== */
+.chart-pie--income {
+  background: conic-gradient(
+    var(--color-primary) 0 38%,
+    var(--color-success) 38% 60%,
+    #F59E0B 60% 82%,
+    var(--color-danger) 82% 100%
+  );
+}
+.chart-pie--expense {
+  background: conic-gradient(
+    var(--color-primary) 0 30%,
+    #F59E0B 30% 52%,
+    var(--color-success) 52% 68%,
+    var(--color-danger) 68% 86%,
+    #8B5CF6 86% 100%
+  );
+}
+
+/* ===== Category analysis ===== */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+}
+.cat-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition),
+    border-color var(--transition);
+}
+.cat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-light);
+}
+.cat-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+.cat-card__name {
+  font-weight: 600;
+  color: var(--color-text);
+}
+.cat-card__pct {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: var(--color-bg-alt);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+}
+.cat-card__amount {
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+.progress__bar--success {
+  background: linear-gradient(90deg, #4ADE80, var(--color-success));
+}
+.progress__bar--danger {
+  background: linear-gradient(90deg, #F87171, var(--color-danger));
+}
+
+/* ===== Ranked top spending list ===== */
+.rank-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.rank-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-card);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.rank-item:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-sm);
+}
+.rank-item__no {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+}
+.rank-item__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.rank-item__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--fs-sm);
+}
+.rank-item__name {
+  font-weight: 600;
+  color: var(--color-text);
+}
+.rank-item__pct {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+.rank-item__amount {
+  font-weight: 700;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+/* ===== Financial insights ===== */
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-4);
+}
+.insight-card {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.insight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.insight-card--up {
+  border-left-color: var(--color-success);
+}
+.insight-card--down {
+  border-left-color: var(--color-danger);
+}
+.insight-card__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+.insight-card--up .insight-card__icon {
+  background: var(--color-success-light);
+  color: var(--color-success);
+}
+.insight-card--down .insight-card__icon {
+  background: var(--color-danger-light);
+  color: var(--color-danger);
+}
+.insight-card__title {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: var(--color-text);
+}
+.insight-card__text {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+/* ===== Export area ===== */
+.export-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+.export-box .dash__panel-title {
+  margin-bottom: var(--space-1);
+}
+.export-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .page-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .bar-chart {
+    height: 160px;
+  }
+}

@@ -1,0 +1,473 @@
+/* ============================================================
+   TRANSACTIONS — add-transaction page
+   Reuses the dashboard shell (sidebar / topbar / .dash__panel).
+   Adds the transaction form, type toggle, upload and preview.
+   ============================================================ */
+
+/* ===== Page header ===== */
+.page-head {
+  margin-bottom: var(--space-2);
+}
+.page-head__title {
+  font-size: var(--fs-3xl);
+}
+.page-head__subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--fs-base);
+  margin-top: 0.25rem;
+}
+
+/* ===== Two-column layout (form + preview) ===== */
+.txn-layout {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+.txn-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.txn-preview {
+  position: sticky;
+  top: 86px;
+}
+
+/* ===== Form fields ===== */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+.field__label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+.field__optional {
+  font-weight: 400;
+  color: var(--color-text-muted);
+  font-size: var(--fs-xs);
+}
+.field__input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  font-size: var(--fs-base);
+  font-family: inherit;
+  color: var(--color-text);
+  background: var(--color-card);
+  border: 1.5px solid var(--color-border);
+  border-radius: 12px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.field__input::placeholder { color: #94A3B8; }
+.field__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgb(37 99 235 / 0.15);
+}
+.field__textarea {
+  resize: vertical;
+  min-height: 84px;
+}
+/* Select arrow */
+select.field__input {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  padding-right: 2.4rem;
+  cursor: pointer;
+}
+.field--invalid .field__input {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 4px rgb(220 38 38 / 0.12);
+}
+.field__error {
+  min-height: 1.05rem;
+  font-size: var(--fs-xs);
+  color: var(--color-danger);
+  font-weight: 500;
+}
+
+/* ===== Transaction type toggle ===== */
+.type-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+.type-card { cursor: pointer; }
+.type-card input { position: absolute; opacity: 0; width: 0; height: 0; }
+.type-card__box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1rem;
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  color: var(--color-text-soft);
+  background: var(--color-card);
+  border: 1.5px solid var(--color-border);
+  border-radius: 12px;
+  transition: border-color var(--transition), color var(--transition), background var(--transition), transform var(--transition);
+}
+.type-card__box:hover { transform: translateY(-2px); }
+.type-card input:checked + .type-card__box {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+.type-card input:focus-visible + .type-card__box {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ===== Receipt upload (UI only) ===== */
+.upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: var(--space-5);
+  text-align: center;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  border: 2px dashed var(--color-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition), color var(--transition);
+}
+.upload:hover,
+.upload.is-dragover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+.upload__input { display: none; }
+.upload__text { font-weight: 600; font-size: var(--fs-sm); color: var(--color-text); }
+.upload__hint { font-size: var(--fs-xs); }
+.upload__name {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--color-success);
+}
+
+/* ===== Buttons row ===== */
+.txn-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+.txn-actions .btn { flex: 1 1 auto; }
+.btn--block { width: 100%; }
+
+/* Save button spinner (mirrors auth.css) */
+.btn { position: relative; }
+.spinner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #fff;
+  border-radius: 50%;
+  display: none;
+  animation: spin 0.7s linear infinite;
+}
+.btn--loading .btn__label { visibility: hidden; }
+.btn--loading .spinner { display: block; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== Live preview card ===== */
+.txn-preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.preview-badge {
+  align-self: flex-start;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+.preview-badge--income { background: var(--color-success-light); color: var(--color-success); }
+.preview-badge--expense { background: var(--color-danger-light); color: var(--color-danger); }
+.preview-big {
+  font-size: var(--fs-4xl);
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1.1;
+  word-break: break-word;
+}
+.preview-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+}
+.preview-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: var(--fs-sm);
+}
+.preview-row dt { color: var(--color-text-muted); }
+.preview-row dd { font-weight: 600; color: var(--color-text); text-align: right; }
+
+/* ===== Success note ===== */
+.txn-success {
+  margin-top: var(--space-3);
+  padding: 0.7rem 0.9rem;
+  border-radius: 12px;
+  background: var(--color-success-light);
+  color: var(--color-success);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .txn-layout { grid-template-columns: 1fr; }
+  .txn-preview { position: static; }
+}
+@media (max-width: 560px) {
+  .field-row { grid-template-columns: 1fr; }
+  .txn-actions { flex-direction: column; }
+  .txn-actions .btn { width: 100%; }
+}
+
+/* ============================================================
+   TRANSACTIONS LIST — toolbar, table, pagination, empty state
+   ============================================================ */
+
+/* ===== Toolbar ===== */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+}
+.toolbar__search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1 1 240px;
+  min-width: 200px;
+  padding: 0.55rem 0.9rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.toolbar__search:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgb(37 99 235 / 0.12);
+}
+.toolbar__search .search__icon { color: var(--color-text-muted); display: grid; place-items: center; }
+.toolbar__search .search__input { border: none; background: transparent; outline: none; font: inherit; color: var(--color-text); width: 100%; }
+
+.toolbar__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.toolbar__group > label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+.date-range {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-2);
+}
+.date-range > label { align-self: flex-end; margin-bottom: 0.55rem; }
+.date-range__sep { color: var(--color-text-muted); font-size: var(--fs-sm); }
+.date-range .field__input { width: auto; }
+
+/* Segmented filter control */
+.seg {
+  display: inline-flex;
+  padding: 0.25rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}
+.seg__btn {
+  padding: 0.45rem 1rem;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-pill);
+  transition: background var(--transition), color var(--transition);
+}
+.seg__btn:hover { color: var(--color-primary); }
+.seg__btn.is-active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ===== Category pill ===== */
+.cat-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  background: var(--color-bg-alt);
+  color: var(--color-text-soft);
+}
+
+/* Cancelled status */
+.status--cancelled { background: var(--color-danger-light); color: var(--color-danger); }
+
+/* ===== Pagination ===== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: var(--space-2);
+}
+.page-btn {
+  min-width: 38px;
+  height: 38px;
+  padding: 0 0.6rem;
+  display: grid;
+  place-items: center;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text-soft);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
+}
+.page-btn:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+.page-btn.is-active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+.page-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* ===== Empty state ===== */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+  padding: var(--space-8) var(--space-5);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.empty-state[hidden] { display: none; }
+.empty-state__icon {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--color-bg-alt);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+.empty-state__title { font-size: var(--fs-xl); }
+.empty-state__text { color: var(--color-text-muted); font-size: var(--fs-sm); }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .toolbar { flex-direction: column; align-items: stretch; }
+  .toolbar__search { flex: 1 1 auto; }
+  .seg { align-self: flex-start; }
+  .date-range { flex-wrap: wrap; }
+  .date-range > label { margin-bottom: 0; }
+}
+/* ==============================
+   Edit Transaction Modal
+   ============================== */
+
+#editModal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+#editModal[hidden] {
+    display: none;
+}
+
+#editModal > div {
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+#editModal h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 24px;
+}
+
+#editModal label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+#editModal input,
+#editModal select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border: 1px solid #dbe2ea;
+    border-radius: 9px;
+    font-size: 15px;
+}
+
+#editModal button {
+    padding: 11px 20px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+}
+
+#cancelEdit {
+    background: #eef2f7;
+    margin-right: 10px;
+}
+
+#editTransactionForm button[type="submit"] {
+    background: #2563eb;
+    color: white;
+}
